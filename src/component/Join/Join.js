@@ -8,7 +8,6 @@ let user;
 const Join = () => {
 
     const [name, setName] = useState("");
-    console.log(name);
 
     const sendUser = () => {
         user = document.getElementById("joinInput").value;

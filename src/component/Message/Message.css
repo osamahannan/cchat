@@ -1,0 +1,20 @@
+.messageBox {
+  background-color: gainsboro;
+  padding: 0.7rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  clear: both;
+  font-family: "Roboto";
+}
+
+.right {
+  float: right;
+  background-color: #00a2f3;
+  color: white;
+}
+
+.left {
+  float: left;
+  background-color: rgb(196, 255, 184);
+}
