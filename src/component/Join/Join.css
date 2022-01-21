@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid white;
 }
 
 .JoinContainer img {
@@ -56,4 +57,33 @@
 
 .joinbtn:hover {
   background-color: #0381c0;
+}
+
+@media only screen and (max-width: 950px) {
+  .JoinContainer {
+    width: 100%;
+  }
+
+  .JoinContainer img {
+    width: 3.5rem;
+  }
+
+  .JoinContainer h1 {
+    width: 234px;
+    font-size: 1.7rem;
+    margin: 0.8rem;
+    padding: 0.8rem;
+  }
+
+  #joinInput {
+    width: 234px;
+    padding: 0.6rem;
+    font-size: 1.1rem;
+  }
+
+  .joinbtn {
+    width: 234px;
+    padding: 0.4rem;
+    font-size: 1.3rem;
+  }
 }

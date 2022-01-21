@@ -22,12 +22,14 @@ const Chat = () => {
         document.getElementById("chatInput").value = "";
     }
 
+    console.log(messages);
+
     useEffect(() => {
 
         socket = socketIO(ENDPOINT, { transports: ["websocket"] });
 
         socket.on("connect", () => {
-            alert("connected")
+            // alert("connected")
             setId(socket.id);
         })
 
@@ -35,17 +37,7 @@ const Chat = () => {
 
         socket.on("welcome", (data) => {
             setMessages([...messages, data]);
-            console.log(`${data.user}: ${data.message}`);
-        })
-
-        socket.on("userJoined", (data) => {
-            setMessages([...messages, data]);
-            console.log(`${data.user}: ${data.message}`);
-        })
-
-        socket.on("leave", (data) => {
-            setMessages([...messages, data]);
-            console.log(`${data.user}: ${data.message}`)
+            // console.log(`${data.user}: ${data.message}`);
         })
 
         return () => {
@@ -55,16 +47,26 @@ const Chat = () => {
     }, []);
 
     useEffect(() => {
+
+        socket.on("leave", (data) => {
+            setMessages([...messages, data]);
+            // console.log(`${data.user}: ${data.message}`);
+        })
+
+        socket.on("userJoined", (data) => {
+            setMessages([...messages, data]);
+            // console.log(`${data.user}: ${data.message}`);
+        })
+
         socket.on("sendMessage", (data) => {
             setMessages([...messages, data]);
-            console.log(`${data.user}: ${data.message} with id ${data.id}`)
+            // console.log(`${data.user}: ${data.message}`)
         })
 
         return () => {
             socket.off();
         };
     }, [messages]);
-
 
 
     return (
