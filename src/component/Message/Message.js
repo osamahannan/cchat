@@ -1,7 +1,16 @@
 import React from 'react';
 import "./Message.css";
+// import audioTune from "";
 
 const Message = ({ user, message, classs }) => {
+
+    const audio = new Audio('/popup.mp3');
+
+    if (classs === 'left') {
+        // console.log(message);
+        audio.play();
+    }
+
 
     if (user) {
         return (
